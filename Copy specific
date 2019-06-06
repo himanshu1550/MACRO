@@ -1,0 +1,15 @@
+Sub SelectCell()
+Dim length As Long
+Workbooks("print.xlsx").Activate
+Worksheets("A_1").Activate
+Range("B2").Select
+length = Cells(Rows.Count, 2).End(xlUp).Row
+Range("A1", Range("A" & Rows.Count).End(xlUp)).Select
+Range(Cells(length, 3), Cells(2, 3)).Copy
+Workbooks("print1.xlsx").Activate
+Range("H2").PasteSpecial xlPasteValues
+
+
+
+MsgBox length
+End Sub
